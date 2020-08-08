@@ -26,3 +26,17 @@ function hestia_child_get_lite_options() {
 	}
 }
 add_action( 'after_switch_theme', 'hestia_child_get_lite_options' );
+
+function register_flaticon() {
+    wp_register_script(
+        'flaticon',
+        get_stylesheet_directory_uri() . '/js/flaticon.js',
+        array('jquery')
+    );
+}
+function enqueue_flaticon() {
+    wp_enqueue_script( 'scripts' );
+}
+
+add_action( 'wp_loaded',          'register_scripts' );
+add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
